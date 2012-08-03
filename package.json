@@ -9,16 +9,22 @@
   "bugs": {
     "url": "http://github.com/sailjs/sail/issues"
   },
-  "author": { "name": "Jared Hanson", "email": "jaredhanson@gmail.com", "url": "http://www.jaredhanson.net/" },
-  "licenses": [ {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT" 
-  } ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
   "main": "main",
   "amd": {},
   "volo": {
     "dependencies": {
-      "anchor": "anchorjs/anchor"
+      "anchor": "github:anchorjs/anchor"
     }
   }
 }
