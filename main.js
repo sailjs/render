@@ -1,9 +1,6 @@
-define(['./lib/context'],
-function(context) {
-  var exports = {};
-  
-  exports.render = context.render;
+define(['exports',
+        './lib/context'],
+function(exports, context) {
   exports.$ = context.$;
-  
-  return exports;
+  exports.render = context.render;
 });
