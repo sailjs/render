@@ -23,8 +23,9 @@
   "main": "main",
   "amd": {},
   "volo": {
+    "baseUrl": "vendor",
     "dependencies": {
-      "anchor": "github:anchorjs/anchor"
+      "dom": "github:anchorjs/dom/master"
     }
   }
 }
