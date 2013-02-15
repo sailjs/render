@@ -1,7 +1,5 @@
-define(['sail/main',
-        'chai'],
-function(sail, chai) {
-  var expect = chai.expect;
+define(['render'],
+function(sail) {
 
   describe("sail", function() {
     
@@ -17,5 +15,5 @@ function(sail, chai) {
     
   });
   
-  return { name: "test.sail" }
+  return { name: "test.render" }
 });
