@@ -1,16 +1,16 @@
 define(['render'],
-function(sail) {
+function(render) {
 
-  describe("sail", function() {
+  describe("render", function() {
     
     it('shoud export DOM utility function', function() {
-      expect(sail.$).to.exist;
-      expect(sail.$).to.be.a('function');
+      expect(render.$).to.exist;
+      expect(render.$).to.be.a('function');
     });
     
     it('shoud export render function', function() {
-      expect(sail.render).to.exist;
-      expect(sail.render).to.be.a('function');
+      expect(render.render).to.exist;
+      expect(render.render).to.be.a('function');
     });
     
   });
