@@ -1,13 +1,13 @@
 {
-  "name": "sail",
+  "name": "render",
   "version": "0.0.0",
-  "description": "Refined UI framework for JavaScript applications.",
+  "description": "Rendering engine.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/sailjs/sail.git"
+    "url": "git://github.com/sailjs/render.git"
   },
   "bugs": {
-    "url": "http://github.com/sailjs/sail/issues"
+    "url": "http://github.com/sailjs/render/issues"
   },
   "author": {
     "name": "Jared Hanson",
