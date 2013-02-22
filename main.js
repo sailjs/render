@@ -85,10 +85,81 @@ function(exports, module, DOM, Render) {
     _engines[type] = fn;
   };
   
+  /**
+   * Register template loader function.
+   *
+   * By default, the rendering engine will load templates from the HTML document
+   * by selecting based on ID.  This default was chosen because it allows
+   * applications to be developed with the minimal set of tooling (ie, just a
+   * text editor).
+   *
+   * Some developers prefer to define templates outside of the main HTML
+   * document, for example by exporting strings from a JavaScript module.  In
+   * this case, the template loader can be overridden to support this behavior.
+   *
+   *     render.loader(function(name) {
+   *       return templates.name;
+   *     });
+   *
+   * As an optimization, many deployments ship precompiled templates so as not
+   * to incur the overhead on the client side.  Similarly, the template loader
+   * can be overrriden to return the compiled template directly.
+   *
+   *     render.loader(function(name) {
+   *       return compiledTemplates.name;
+   *     });
+   *
+   * @param {Function} fn  template loader function
+   * @api public
+   */
   exports.loader = function(fn) {
     _load = fn;
   }
   
+  /**
+   * DOM utility.
+   *
+   * This function exposes the DOM utility in use by the application.
+   *
+   * Because DOM access is so pervasive within a web application, the render
+   * module exposes a single entry point for this functionality.  This also
+   * serves as a cheap form of dependency injection, so that the developer can
+   * choose which utility to employ.  Developers of `View` modules are advised
+   * to acccess the DOM through this function, rather than through their own
+   * explicitly declared dependency (which may conflict with the application
+   * developer's preferred choice).
+   *
+   * By default, the [DOM](https://github.com/anchorjs/dom) module provided by
+   * Anchor is used.  However, this can be overridden to use any compatible
+   * module.
+   *
+   * To use [jQuery](http://jquery.com/)
+   *
+   *     render.$(jQuery);
+   *
+   * To use [Zepto](http://zeptojs.com/)
+   *
+   *     render.$(Zepto);
+   *
+   * To use [Kimbo](http://kimbojs.com/)
+   *
+   *     render.$(Kimbo);
+   *
+   * To use [bonzo](https://github.com/ded/bonzo)
+   *
+   *     render.$(bonzo);
+   *
+   *
+   * Anchor's DOM module defines a strict subset of DOM utility functions, which
+   * are designed to be compatible with jQuery and jQuery-compatible libraries.
+   * Developers of `View` modules for use with Sail.js are advised to only
+   * invoke functions within this subset, so as not to create an unneccessary
+   * requirement to use an alternative DOM utility.  Likewise, application
+   * developers are warned that using an incomptible DOM utility may result in
+   * incorrect or undefined behavior.
+   *
+   * @api public
+   */
   exports.$ = function(nodes) {
     if (typeof nodes == 'function') {
       _$ = nodes;
@@ -98,12 +169,11 @@ function(exports, module, DOM, Render) {
   };
   
   
-  var _engines = {};
-  
   var _load = function(name) {
     var el = _$('#' + name + '-template');
     return { type: el.attr('type'), string: el.html() }
   }
   
+  var _engines = {};
   var _$ = DOM;
 });
