@@ -10,8 +10,6 @@ define(['exports', 'module',
         './lib/dom/render'],
 function(exports, module, DOM, Render) {
   
-  DOM.augment(Render);
-  
   /**
    * Render template `name` using given `locals`.
    *
@@ -167,6 +165,10 @@ function(exports, module, DOM, Render) {
     }
     return _$.apply(undefined, arguments);
   };
+  
+  
+  // Augment the DOM with (re)rendering functionality.
+  DOM.augment(Render);
   
   
   var _load = function(name) {
