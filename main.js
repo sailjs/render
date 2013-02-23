@@ -52,6 +52,14 @@ function(exports, module, DOM, Render) {
    * @api public
    */
   exports = module.exports = function(name, locals) {
+    var uc = _useCache
+      , out;
+    
+    if (uc) {
+      out = _cache[name];
+      if (out) return out;
+    }
+    
     var tmpl = _load(name);
     if (typeof tmpl == 'string') {
       tmpl = { string: tmpl }
@@ -64,7 +72,9 @@ function(exports, module, DOM, Render) {
     if (!engine) throw new Error('No engine to render template type: ' + type);
     // TODO: Pass arbitrary number of arguments to engine.
     //return engine(tmpl.string, locals, options);
-    return engine(tmpl.string, locals);
+    out = engine(tmpl.string, locals);
+    if (uc) _cache[name] = out;
+    return out;
   };
   exports.render = exports;
   
@@ -82,6 +92,10 @@ function(exports, module, DOM, Render) {
     }
     _engines[type] = fn;
   };
+  
+  exports.cache = function(flag) {
+    _useCache = flag;
+  }
   
   /**
    * Register template loader function.
@@ -177,5 +191,8 @@ function(exports, module, DOM, Render) {
   }
   
   var _engines = {};
+  var _cache = {};
+  var _useCache = true;
+  
   var _$ = DOM;
 });
