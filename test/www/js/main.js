@@ -7,8 +7,7 @@ require.config({
   },
   packages: [
     { name: 'render', location: '../../../..', main: 'main' },
-    { name: 'dom' },
-    { name: 'mocha-cloud', location: '../support', main: 'mocha-cloud' }
+    { name: 'dom' }
   ],
   shim: {
     'mocha': {
