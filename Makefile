@@ -7,7 +7,7 @@ TESTS = test/*.test.js
 
 build-browserify:
 	mkdir -p build
-	browserify -t deamdify class.js -o build/bundle.js
+	browserify -t deamdify main.js -o build/bundle.js
 	
 build-component: components
 	component build -u component-amd

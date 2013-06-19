@@ -1,7 +1,7 @@
 {
   "name": "render",
   "version": "0.0.0",
-  "description": "Rendering engine.",
+  "description": "Template rendering engine for Sail.js.",
   "repository": {
     "type": "git",
     "url": "git://github.com/sailjs/render.git"
@@ -32,6 +32,9 @@
     "mocha-cloud-grid-view": "0.0.x",
     "component-amd": "0.1.x",
     "deamdify": "0.1.x"
+  },
+  "browserify": {
+    "transform": "deamdify"
   },
   "volo": {
     "dependencies": {

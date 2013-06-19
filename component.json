@@ -1,0 +1,15 @@
+{
+  "name": "render",
+  "version": "0.0.0",
+  "description": "Template rendering engine for Sail.js.",
+  "repo": "sailjs/render",
+  "main": "main.js",
+  "scripts": [
+    "main.js",
+    "lib/dom/render.js"
+  ],
+  "dependencies": {
+    "anchorjs/dom": "*"
+  },
+  "license": "MIT"
+}
