@@ -6,11 +6,11 @@ The template rendering engine used by Sail.js applications.
 
 ##### component
 
-    $ component install anchorjs/selector
+    $ component install sailjs/render
 
 ##### volo
 
-    $ volo add anchorjs/selector
+    $ volo add sailjs/render
     
 ## Usage
 
