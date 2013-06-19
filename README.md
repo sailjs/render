@@ -16,7 +16,7 @@ The template rendering engine used by Sail.js applications.
 
 #### Setup Rendering Engine
 
-First, register the engine used to register your templates.
+First, register the engine used to render your templates.
 
 ```javascript
 render.engine('text/x-mustache-template', mustache());
